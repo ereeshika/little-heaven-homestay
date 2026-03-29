@@ -16,7 +16,6 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
-
     <style>
       :root {
         --forest: #2c4a3e;
@@ -27,7 +26,6 @@
         --charcoal: #1e2d27;
         --white: #ffffff;
       }
-
       *,
       *::before,
       *::after {
@@ -35,18 +33,15 @@
         margin: 0;
         padding: 0;
       }
-
       html {
         scroll-behavior: smooth;
       }
-
       body {
         font-family: "Jost", sans-serif;
         background: var(--cream);
         color: var(--charcoal);
         overflow-x: hidden;
       }
-
       h1,
       h2,
       h3,
@@ -54,13 +49,18 @@
       h5 {
         font-family: "Cormorant Garamond", serif;
       }
+      img {
+        max-width: 100%;
+        display: block;
+      }
 
-      /* ── NAVBAR ─────────────────────────────────────── */
+      /* ── NAVBAR ── */
       .navbar {
         background: transparent;
         transition:
           background 0.4s,
-          box-shadow 0.4s;
+          box-shadow 0.4s,
+          padding 0.3s;
         padding: 1.2rem 0;
         position: fixed;
         width: 100%;
@@ -68,51 +68,95 @@
         z-index: 1000;
       }
       .navbar.scrolled {
-        background: rgba(28, 45, 39, 0.96);
+        background: rgba(28, 45, 39, 0.97);
         box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-        padding: 0.7rem 0;
+        padding: 0.6rem 0;
       }
       .navbar-brand {
         font-family: "Cormorant Garamond", serif;
-        font-size: 1.5rem;
+        font-size: 1.45rem;
         font-weight: 600;
         color: var(--white) !important;
-        letter-spacing: 0.03em;
+        letter-spacing: 0.02em;
         line-height: 1.15;
       }
       .navbar-brand span {
         display: block;
-        font-size: 0.7rem;
+        font-size: 0.65rem;
         font-family: "Jost", sans-serif;
         font-weight: 300;
-        letter-spacing: 0.25em;
+        letter-spacing: 0.22em;
         color: var(--gold);
         text-transform: uppercase;
       }
       .navbar-nav .nav-link {
         color: rgba(255, 255, 255, 0.85) !important;
-        font-size: 0.8rem;
-        letter-spacing: 0.18em;
+        font-size: 0.78rem;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
         font-weight: 400;
-        padding: 0.4rem 1rem !important;
+        padding: 0.4rem 0.85rem !important;
         transition: color 0.25s;
       }
       .navbar-nav .nav-link:hover {
         color: var(--gold) !important;
       }
       .navbar-toggler {
-        border-color: rgba(255, 255, 255, 0.4);
+        border-color: rgba(255, 255, 255, 0.35);
+        padding: 0.3rem 0.6rem;
+      }
+      .navbar-toggler:focus {
+        box-shadow: none;
       }
       .navbar-toggler-icon {
         filter: invert(1);
       }
+      @media (max-width: 991px) {
+        .navbar-collapse {
+          background: rgba(28, 45, 39, 0.97);
+          padding: 1rem 1.2rem 1.4rem;
+          margin-top: 0.6rem;
+          border-radius: 4px;
+        }
+        .navbar-nav .nav-link {
+          padding: 0.65rem 0.5rem !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .navbar-nav .nav-link:last-child {
+          border-bottom: none;
+        }
+      }
+      .nav-book-btn {
+        display: inline-block;
+        padding: 0.42rem 1.2rem;
+        border: 1.5px solid var(--gold);
+        color: var(--white) !important;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 2px;
+        margin-top: 0.2rem;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+      .nav-book-btn:hover {
+        background: var(--gold);
+        color: var(--charcoal) !important;
+      }
+      @media (min-width: 992px) {
+        .nav-book-btn {
+          margin-top: 0;
+          margin-left: 0.5rem;
+        }
+      }
 
-      /* ── HERO ────────────────────────────────────────── */
+      /* ── HERO ── */
       #hero {
         position: relative;
         height: 100vh;
-        min-height: 600px;
+        min-height: 560px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -124,23 +168,21 @@
         background:
           linear-gradient(
             to bottom,
-            rgba(28, 45, 39, 0.45) 0%,
-            rgba(28, 45, 39, 0.65) 100%
+            rgba(28, 45, 39, 0.42) 0%,
+            rgba(28, 45, 39, 0.68) 100%
           ),
-          url("https://placehold.co/1600x900/2c4a3e/5a7f6e?text=Hero+Image+–+Replace+Me")
-            center/cover no-repeat;
+          url("img/hero.png") center/cover no-repeat;
         transform: scale(1.04);
         transition: transform 8s ease-out;
       }
       #hero.loaded #hero-bg {
         transform: scale(1);
       }
-
       .hero-content {
         position: relative;
         text-align: center;
         color: var(--white);
-        padding: 2rem;
+        padding: 2rem 1.5rem;
         animation: fadeUp 1.1s ease both;
       }
       .hero-eyebrow {
@@ -153,22 +195,22 @@
         margin-bottom: 1rem;
       }
       .hero-title {
-        font-size: clamp(2.8rem, 7vw, 5.5rem);
+        font-size: clamp(2.4rem, 7vw, 5.5rem);
         font-weight: 300;
         line-height: 1.05;
         letter-spacing: -0.01em;
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.5rem;
       }
       .hero-title em {
         font-style: italic;
         color: var(--mist);
       }
       .hero-subtitle {
-        font-size: 1rem;
+        font-size: clamp(0.85rem, 2vw, 1rem);
         font-family: "Jost", sans-serif;
         font-weight: 300;
-        letter-spacing: 0.08em;
-        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.72);
         margin-bottom: 2.2rem;
       }
       .btn-hero {
@@ -196,14 +238,25 @@
         left: 50%;
         transform: translateX(-50%);
         animation: bounce 2.2s infinite;
-        color: rgba(255, 255, 255, 0.55);
-        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 1.2rem;
       }
 
-      /* ── SECTION SHARED ──────────────────────────────── */
+      /* ── SECTIONS ── */
       section {
         padding: 90px 0;
       }
+      @media (max-width: 768px) {
+        section {
+          padding: 64px 0;
+        }
+      }
+      @media (max-width: 576px) {
+        section {
+          padding: 52px 0;
+        }
+      }
+
       .section-label {
         font-family: "Jost", sans-serif;
         font-size: 0.72rem;
@@ -213,7 +266,7 @@
         margin-bottom: 0.6rem;
       }
       .section-title {
-        font-size: clamp(2rem, 4vw, 3rem);
+        font-size: clamp(1.85rem, 4vw, 3rem);
         font-weight: 300;
         line-height: 1.1;
         color: var(--forest);
@@ -229,38 +282,51 @@
         margin-right: auto;
       }
 
-      /* ── ABOUT ───────────────────────────────────────── */
+      /* ── ABOUT ── */
       #about {
         background: var(--white);
       }
       .about-img-wrap {
         position: relative;
-        overflow: hidden;
+        overflow: visible;
         border-radius: 2px;
       }
       .about-img-wrap img {
         width: 100%;
-        height: 420px;
+        height: 400px;
         object-fit: cover;
+        border-radius: 2px;
         display: block;
+        position: relative;
+        z-index: 1;
         transition: transform 0.6s ease;
       }
+      @media (max-width: 576px) {
+        .about-img-wrap img {
+          height: 250px;
+        }
+      }
       .about-img-wrap:hover img {
-        transform: scale(1.04);
+        transform: scale(1.03);
       }
       .about-accent {
         position: absolute;
-        bottom: -18px;
-        right: -18px;
-        width: 140px;
-        height: 140px;
+        bottom: -16px;
+        right: -16px;
+        width: 120px;
+        height: 120px;
         border: 2px solid var(--gold);
         border-radius: 2px;
         z-index: 0;
       }
+      @media (max-width: 575px) {
+        .about-accent {
+          display: none;
+        }
+      }
       .about-text p {
-        font-size: 1rem;
-        line-height: 1.85;
+        font-size: 0.97rem;
+        line-height: 1.88;
         color: #4a5a52;
         margin-bottom: 1rem;
       }
@@ -271,17 +337,17 @@
         background: var(--cream);
         border: 1px solid var(--mist);
         border-radius: 50px;
-        padding: 0.35rem 0.9rem;
-        font-size: 0.8rem;
+        padding: 0.32rem 0.85rem;
+        font-size: 0.78rem;
         color: var(--forest);
-        margin: 0.25rem 0.15rem;
+        margin: 0.22rem 0.12rem;
       }
       .feature-chip i {
         color: var(--gold);
-        font-size: 0.75rem;
+        font-size: 0.72rem;
       }
 
-      /* ── GALLERY ─────────────────────────────────────── */
+      /* ── GALLERY ── */
       #gallery {
         background: var(--cream);
       }
@@ -291,23 +357,23 @@
         grid-template-rows: 240px 240px;
         gap: 10px;
       }
-      .gallery-grid .g-item {
+      .g-item {
         overflow: hidden;
         border-radius: 2px;
         cursor: pointer;
         position: relative;
       }
-      .gallery-grid .g-item.tall {
+      .g-item.tall {
         grid-row: span 2;
       }
-      .gallery-grid .g-item img {
+      .g-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform 0.5s ease;
         display: block;
       }
-      .gallery-grid .g-item:hover img {
+      .g-item:hover img {
         transform: scale(1.06);
       }
       .g-overlay {
@@ -331,53 +397,71 @@
       .g-item:hover .g-overlay i {
         opacity: 1;
       }
+      @media (max-width: 767px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(3, 200px);
+        }
+        .g-item.tall {
+          grid-row: span 1;
+        }
+      }
+      @media (max-width: 479px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(5, 200px);
+        }
+      }
 
       /* Lightbox */
       #lightbox {
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.92);
         z-index: 9999;
         align-items: center;
         justify-content: center;
+        padding: 1rem;
       }
       #lightbox.active {
         display: flex;
       }
       #lightbox img {
-        max-width: 90vw;
-        max-height: 85vh;
+        max-width: 92vw;
+        max-height: 88vh;
         border-radius: 2px;
         object-fit: contain;
       }
       #lightbox-close {
         position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
+        top: 1.2rem;
+        right: 1.4rem;
         color: white;
-        font-size: 1.8rem;
+        font-size: 2rem;
         cursor: pointer;
         background: none;
         border: none;
         line-height: 1;
+        opacity: 0.8;
+        transition: opacity 0.2s;
+      }
+      #lightbox-close:hover {
+        opacity: 1;
       }
 
-      /* ── AMENITIES ───────────────────────────────────── */
+      /* ── AMENITIES ── */
       #amenities {
         background: var(--forest);
       }
       #amenities .section-title {
         color: var(--cream);
       }
-      #amenities .section-label {
-        color: var(--gold);
-      }
       .amenity-card {
         background: rgba(255, 255, 255, 0.06);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 4px;
-        padding: 2rem 1.5rem;
+        padding: 1.8rem 1.2rem;
         text-align: center;
         transition:
           background 0.3s,
@@ -389,30 +473,30 @@
         transform: translateY(-4px);
       }
       .amenity-icon {
-        width: 54px;
-        height: 54px;
+        width: 52px;
+        height: 52px;
         border-radius: 50%;
         background: rgba(200, 169, 110, 0.15);
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 0 auto 1rem;
-        font-size: 1.3rem;
+        font-size: 1.25rem;
         color: var(--gold);
       }
       .amenity-card h5 {
         color: var(--cream);
-        font-size: 1rem;
+        font-size: 0.97rem;
         font-weight: 400;
         letter-spacing: 0.04em;
       }
       .amenity-card p {
-        color: rgba(255, 255, 255, 0.5);
-        font-size: 0.82rem;
-        margin: 0.4rem 0 0;
+        color: rgba(255, 255, 255, 0.48);
+        font-size: 0.8rem;
+        margin: 0.35rem 0 0;
       }
 
-      /* ── ROOMS ───────────────────────────────────────── */
+      /* ── ROOMS ── */
       #rooms {
         background: var(--white);
       }
@@ -445,9 +529,9 @@
         color: var(--forest);
       }
       .room-card .card-text {
-        font-size: 0.88rem;
+        font-size: 0.87rem;
         color: #6a7a72;
-        line-height: 1.7;
+        line-height: 1.72;
         margin-bottom: 1rem;
       }
       .room-badge {
@@ -456,32 +540,88 @@
         gap: 0.3rem;
         font-size: 0.75rem;
         color: var(--sage);
-        margin: 0.1rem 0.2rem;
+        margin: 0.1rem 0.15rem;
       }
       .room-badge i {
         color: var(--gold);
       }
 
-      /* ── CONTACT ─────────────────────────────────────── */
+      /* ── BOOK BANNER ── */
+      #book-banner {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(28, 45, 39, 0.92) 0%,
+            rgba(90, 127, 110, 0.87) 100%
+          ),
+          url("img/hero.png") center/cover;
+        padding: 80px 0;
+        text-align: center;
+        color: var(--white);
+      }
+      @media (max-width: 576px) {
+        #book-banner {
+          padding: 56px 0;
+        }
+      }
+      #book-banner h2 {
+        font-size: clamp(1.8rem, 5vw, 3.2rem);
+        font-weight: 300;
+        margin-bottom: 0.7rem;
+      }
+      #book-banner p {
+        font-size: 0.97rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 2rem;
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: var(--charcoal);
+        padding: 0.85rem 2.4rem;
+        font-family: "Jost", sans-serif;
+        font-size: 0.82rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 2px;
+        display: inline-block;
+        transition:
+          background 0.25s,
+          transform 0.25s;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-gold:hover {
+        background: #d4b882;
+        transform: translateY(-2px);
+        color: var(--charcoal);
+      }
+
+      /* ── CONTACT ── */
       #contact {
         background: var(--cream);
       }
       .contact-card {
         background: var(--white);
         border-radius: 4px;
-        padding: 2.5rem;
+        padding: 2.2rem;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.07);
+      }
+      @media (max-width: 576px) {
+        .contact-card {
+          padding: 1.5rem;
+        }
       }
       .contact-item {
         display: flex;
         align-items: flex-start;
-        gap: 1.1rem;
-        margin-bottom: 1.5rem;
+        gap: 1rem;
+        margin-bottom: 1.4rem;
       }
       .contact-icon {
-        width: 42px;
-        height: 42px;
-        min-width: 42px;
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
         border-radius: 50%;
         background: var(--cream);
         border: 1.5px solid var(--gold);
@@ -489,61 +629,60 @@
         align-items: center;
         justify-content: center;
         color: var(--gold);
-        font-size: 0.9rem;
+        font-size: 0.88rem;
       }
       .contact-info h6 {
         font-family: "Cormorant Garamond", serif;
-        font-size: 1.05rem;
+        font-size: 1rem;
         font-weight: 600;
         color: var(--forest);
         margin-bottom: 0.1rem;
       }
       .contact-info p,
       .contact-info a {
-        font-size: 0.88rem;
+        font-size: 0.86rem;
         color: #6a7a72;
         text-decoration: none;
+        line-height: 1.5;
       }
       .contact-info a:hover {
         color: var(--gold);
       }
+
       .map-embed {
         border-radius: 4px;
         overflow: hidden;
-        height: 280px;
-        background: var(--mist);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        height: 100%;
+        min-height: 280px;
       }
-      .map-embed p {
-        color: var(--forest);
-        font-size: 0.85rem;
-        text-align: center;
-        padding: 1rem;
+      .map-embed iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
       }
 
-      /* Social buttons */
       .social-strip {
         display: flex;
-        gap: 0.7rem;
+        gap: 0.6rem;
         flex-wrap: wrap;
-        margin-top: 1.5rem;
+        margin-top: 1.6rem;
       }
       .soc-btn {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.55rem 1.2rem;
+        gap: 0.45rem;
+        padding: 0.5rem 1.1rem;
         border-radius: 50px;
-        font-size: 0.8rem;
+        font-size: 0.78rem;
         font-family: "Jost", sans-serif;
         text-decoration: none;
+        font-weight: 400;
+        letter-spacing: 0.04em;
         transition:
           opacity 0.25s,
           transform 0.25s;
-        font-weight: 400;
-        letter-spacing: 0.04em;
+        white-space: nowrap;
       }
       .soc-btn:hover {
         opacity: 0.85;
@@ -573,56 +712,33 @@
         color: white;
       }
 
-      /* ── BOOK BANNER ─────────────────────────────────── */
-      #book-banner {
-        background:
-          linear-gradient(
-            135deg,
-            rgba(28, 45, 39, 0.9) 0%,
-            rgba(90, 127, 110, 0.85) 100%
-          ),
-          url("https://placehold.co/1400x500/2c4a3e/5a7f6e?text=Banner+Background")
-            center/cover;
-        padding: 80px 0;
-        text-align: center;
-        color: var(--white);
-      }
-      #book-banner h2 {
-        font-size: clamp(2rem, 5vw, 3.4rem);
-        font-weight: 300;
-        margin-bottom: 0.6rem;
-      }
-      #book-banner p {
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.72);
-        margin-bottom: 2rem;
-      }
-      .btn-gold {
-        background: var(--gold);
-        color: var(--charcoal);
-        padding: 0.85rem 2.5rem;
-        font-family: "Jost", sans-serif;
-        font-size: 0.82rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        text-decoration: none;
-        border-radius: 2px;
-        display: inline-block;
+      .form-control {
+        border-color: var(--mist);
+        font-size: 0.87rem;
+        border-radius: 3px;
+        padding: 0.6rem 0.85rem;
         transition:
-          background 0.25s,
-          transform 0.25s;
-        border: none;
+          border-color 0.25s,
+          box-shadow 0.25s;
       }
-      .btn-gold:hover {
-        background: #d4b882;
-        transform: translateY(-2px);
+      .form-control:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(200, 169, 110, 0.15);
+        outline: none;
+      }
+      .form-label {
+        font-size: 0.72rem;
+        color: #999;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.3rem;
+        text-transform: uppercase;
       }
 
-      /* ── FOOTER ──────────────────────────────────────── */
+      /* ── FOOTER ── */
       footer {
         background: var(--charcoal);
         color: rgba(255, 255, 255, 0.55);
-        padding: 50px 0 28px;
+        padding: 56px 0 28px;
       }
       footer .brand-name {
         font-family: "Cormorant Garamond", serif;
@@ -632,7 +748,7 @@
       }
       footer p {
         font-size: 0.83rem;
-        line-height: 1.7;
+        line-height: 1.72;
       }
       footer a {
         color: rgba(255, 255, 255, 0.5);
@@ -642,8 +758,18 @@
       footer a:hover {
         color: var(--gold);
       }
-      footer .footer-links li {
+      .footer-links li {
         margin-bottom: 0.4rem;
+        list-style: none;
+      }
+      .footer-heading {
+        color: var(--gold);
+        font-family: "Jost", sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        font-weight: 500;
       }
       .footer-social a {
         display: inline-flex;
@@ -652,27 +778,29 @@
         width: 36px;
         height: 36px;
         border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.18);
         margin-right: 0.4rem;
         color: rgba(255, 255, 255, 0.6) !important;
         font-size: 0.9rem;
         transition:
           border-color 0.25s,
-          color 0.25s;
+          color 0.25s,
+          background 0.25s;
       }
       .footer-social a:hover {
         border-color: var(--gold);
         color: var(--gold) !important;
+        background: rgba(200, 169, 110, 0.1);
       }
       .footer-bottom {
         border-top: 1px solid rgba(255, 255, 255, 0.08);
-        margin-top: 2rem;
+        margin-top: 2.5rem;
         padding-top: 1.2rem;
-        font-size: 0.76rem;
+        font-size: 0.75rem;
         text-align: center;
       }
 
-      /* ── ANIMATIONS ──────────────────────────────────── */
+      /* ── ANIMATIONS ── */
       @keyframes fadeUp {
         from {
           opacity: 0;
@@ -689,46 +817,24 @@
           transform: translateX(-50%) translateY(0);
         }
         50% {
-          transform: translateX(-50%) translateY(8px);
+          transform: translateX(-50%) translateY(9px);
         }
       }
       .reveal {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(28px);
         transition:
-          opacity 0.7s ease,
-          transform 0.7s ease;
+          opacity 0.72s ease,
+          transform 0.72s ease;
       }
       .reveal.visible {
         opacity: 1;
         transform: translateY(0);
       }
-
-      /* ── RESPONSIVE ──────────────────────────────────── */
-      @media (max-width: 768px) {
-        .gallery-grid {
-          grid-template-columns: repeat(2, 1fr);
-          grid-template-rows: auto;
-        }
-        .gallery-grid .g-item.tall {
-          grid-row: span 1;
-        }
-        section {
-          padding: 64px 0;
-        }
-      }
-      @media (max-width: 576px) {
-        .gallery-grid {
-          grid-template-columns: 1fr;
-        }
-        .about-accent {
-          display: none;
-        }
-      }
     </style>
   </head>
   <body>
-    <!-- ── NAVBAR ─────────────────────────────────────────── -->
+    <!-- ── NAVBAR ── -->
     <nav class="navbar navbar-expand-lg" id="mainNav">
       <div class="container">
         <a class="navbar-brand" href="#">
@@ -740,11 +846,14 @@
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-          <ul class="navbar-nav gap-1">
+          <ul class="navbar-nav align-items-lg-center">
             <li class="nav-item">
               <a class="nav-link" href="#about">About</a>
             </li>
@@ -760,20 +869,15 @@
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
             </li>
-            <li class="nav-item ms-2">
-              <a
-                class="btn-hero nav-link"
-                href="#contact"
-                style="padding: 0.45rem 1.3rem !important; font-size: 0.72rem"
-                >Book Now</a
-              >
+            <li class="nav-item">
+              <a class="nav-book-btn" href="#contact">Book Now</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <!-- ── HERO ───────────────────────────────────────────── -->
+    <!-- ── HERO ── -->
     <section id="hero">
       <div id="hero-bg"></div>
       <div class="hero-content">
@@ -787,20 +891,20 @@
       <div class="scroll-hint"><i class="fa-solid fa-chevron-down"></i></div>
     </section>
 
-    <!-- ── ABOUT ──────────────────────────────────────────── -->
+    <!-- ── ABOUT ── -->
     <section id="about">
       <div class="container">
         <div class="row align-items-center g-5">
           <div class="col-lg-5 reveal">
-            <div class="about-img-wrap" style="position: relative">
+            <div class="about-img-wrap">
               <img
-                src="https://placehold.co/640x480/5a7f6e/f5f0e8?text=About+Image+–+Replace+Me"
-                alt="Little Heaven HomeStay"
+                src="img/hero-about.png"
+                alt="Little Heaven HomeStay surroundings"
               />
               <div class="about-accent"></div>
             </div>
           </div>
-          <div class="col-lg-7 about-text reveal">
+          <div class="col-lg-7 about-text reveal" style="margin-top: 1rem">
             <p class="section-label">Our Story</p>
             <h2 class="section-title">
               A Peaceful Retreat<br />in the Heart of Nature
@@ -844,7 +948,7 @@
       </div>
     </section>
 
-    <!-- ── GALLERY ─────────────────────────────────────────── -->
+    <!-- ── GALLERY ── -->
     <section id="gallery">
       <div class="container">
         <div class="text-center mb-5 reveal">
@@ -854,38 +958,23 @@
         </div>
         <div class="gallery-grid reveal">
           <div class="g-item tall" onclick="openLightbox(this)">
-            <img
-              src="https://placehold.co/600x900/2c4a3e/b8cfc0?text=Gallery+1"
-              alt="Gallery 1"
-            />
+            <img src="img/g-1.png" alt="Gallery image 1" />
             <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
           </div>
           <div class="g-item" onclick="openLightbox(this)">
-            <img
-              src="https://placehold.co/600x400/5a7f6e/f5f0e8?text=Gallery+2"
-              alt="Gallery 2"
-            />
+            <img src="img/g-2.png" alt="Gallery image 2" />
             <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
           </div>
           <div class="g-item" onclick="openLightbox(this)">
-            <img
-              src="https://placehold.co/600x400/b8cfc0/2c4a3e?text=Gallery+3"
-              alt="Gallery 3"
-            />
+            <img src="img/g-3.png" alt="Gallery image 3" />
             <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
           </div>
           <div class="g-item" onclick="openLightbox(this)">
-            <img
-              src="https://placehold.co/600x400/c8a96e/ffffff?text=Gallery+4"
-              alt="Gallery 4"
-            />
+            <img src="img/g-4.png" alt="Gallery image 4" />
             <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
           </div>
           <div class="g-item" onclick="openLightbox(this)">
-            <img
-              src="https://placehold.co/600x400/1e2d27/b8cfc0?text=Gallery+5"
-              alt="Gallery 5"
-            />
+            <img src="img/g-5.png" alt="Gallery image 5" />
             <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
           </div>
         </div>
@@ -893,12 +982,19 @@
     </section>
 
     <!-- Lightbox -->
-    <div id="lightbox">
-      <button id="lightbox-close" onclick="closeLightbox()">&times;</button>
-      <img id="lightbox-img" src="" alt="Lightbox" />
+    <div
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image viewer"
+    >
+      <button id="lightbox-close" onclick="closeLightbox()" aria-label="Close">
+        &times;
+      </button>
+      <img id="lightbox-img" src="" alt="Expanded gallery image" />
     </div>
 
-    <!-- ── AMENITIES ───────────────────────────────────────── -->
+    <!-- ── AMENITIES ── -->
     <section id="amenities">
       <div class="container">
         <div class="text-center mb-5 reveal">
@@ -908,15 +1004,15 @@
           </h2>
           <div class="divider centered"></div>
         </div>
-        <div class="row g-4">
-          <div class="col-6 col-md-4 col-lg-2 reveal">
+        <div class="row g-4 justify-content-center">
+          <div class="col-6 col-sm-4 col-lg-2 reveal">
             <div class="amenity-card">
               <div class="amenity-icon"><i class="fa-solid fa-wifi"></i></div>
               <h5>Free Wi-Fi</h5>
               <p>Stay connected throughout</p>
             </div>
           </div>
-          <div class="col-6 col-md-4 col-lg-2 reveal">
+          <div class="col-6 col-sm-4 col-lg-2 reveal">
             <div class="amenity-card">
               <div class="amenity-icon">
                 <i class="fa-solid fa-utensils"></i>
@@ -925,14 +1021,14 @@
               <p>Authentic home-cooked food</p>
             </div>
           </div>
-          <div class="col-6 col-md-4 col-lg-2 reveal">
+          <div class="col-6 col-sm-4 col-lg-2 reveal">
             <div class="amenity-card">
               <div class="amenity-icon"><i class="fa-solid fa-car"></i></div>
               <h5>Parking</h5>
               <p>Free on-site parking</p>
             </div>
           </div>
-          <div class="col-6 col-md-4 col-lg-2 reveal">
+          <div class="col-6 col-sm-4 col-lg-2 reveal">
             <div class="amenity-card">
               <div class="amenity-icon">
                 <i class="fa-solid fa-mountain-sun"></i>
@@ -941,7 +1037,7 @@
               <p>Breathtaking hill vistas</p>
             </div>
           </div>
-          <div class="col-6 col-md-4 col-lg-2 reveal">
+          <div class="col-6 col-sm-4 col-lg-2 reveal">
             <div class="amenity-card">
               <div class="amenity-icon">
                 <i class="fa-solid fa-person-hiking"></i>
@@ -950,7 +1046,7 @@
               <p>Guided nature trails nearby</p>
             </div>
           </div>
-          <div class="col-6 col-md-4 col-lg-2 reveal">
+          <div class="col-6 col-sm-4 col-lg-2 reveal">
             <div class="amenity-card">
               <div class="amenity-icon">
                 <i class="fa-solid fa-droplet"></i>
@@ -963,7 +1059,7 @@
       </div>
     </section>
 
-    <!-- ── ROOMS ───────────────────────────────────────────── -->
+    <!-- ── ROOMS ── -->
     <section id="rooms">
       <div class="container">
         <div class="text-center mb-5 reveal">
@@ -971,12 +1067,12 @@
           <h2 class="section-title">Rooms &amp; Spaces</h2>
           <div class="divider centered"></div>
         </div>
-        <div class="row g-4">
-          <div class="col-md-4 reveal">
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-6 col-lg-4 reveal">
             <div class="card room-card">
               <img
-                src="https://placehold.co/600x360/5a7f6e/f5f0e8?text=Room+1+–+Replace+Me"
-                alt="Room 1"
+                src="https://placehold.co/600x360/5a7f6e/f5f0e8?text=Room+1+%E2%80%93+Replace+Me"
+                alt="Garden View Room"
               />
               <div class="card-body">
                 <h5 class="card-title">Garden View Room</h5>
@@ -999,11 +1095,11 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 reveal">
+          <div class="col-md-6 col-lg-4 reveal">
             <div class="card room-card">
               <img
-                src="https://placehold.co/600x360/2c4a3e/b8cfc0?text=Room+2+–+Replace+Me"
-                alt="Room 2"
+                src="https://placehold.co/600x360/2c4a3e/b8cfc0?text=Room+2+%E2%80%93+Replace+Me"
+                alt="Valley View Suite"
               />
               <div class="card-body">
                 <h5 class="card-title">Valley View Suite</h5>
@@ -1019,17 +1115,17 @@
                     ><i class="fa-solid fa-bath"></i> Private Bath</span
                   >
                   <span class="room-badge"
-                    ><i class="fa-solid fa-mountain"></i> View</span
+                    ><i class="fa-solid fa-mountain"></i> Valley View</span
                   >
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4 reveal">
+          <div class="col-md-6 col-lg-4 reveal">
             <div class="card room-card">
               <img
-                src="https://placehold.co/600x360/b8cfc0/1e2d27?text=Room+3+–+Replace+Me"
-                alt="Room 3"
+                src="https://placehold.co/600x360/b8cfc0/1e2d27?text=Room+3+%E2%80%93+Replace+Me"
+                alt="Family Villa"
               />
               <div class="card-body">
                 <h5 class="card-title">Family Villa</h5>
@@ -1055,13 +1151,13 @@
       </div>
     </section>
 
-    <!-- ── BOOK BANNER ─────────────────────────────────────── -->
+    <!-- ── BOOK BANNER ── -->
     <div id="book-banner">
       <div class="container">
         <h2>Ready to Experience Little Heaven?</h2>
         <p>Book directly or find us on Airbnb. We'd love to host you.</p>
         <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="#" class="btn-gold"
+          <a href="#" class="btn-gold" target="_blank"
             ><i class="fa-brands fa-airbnb me-2"></i>Book on Airbnb</a
           >
           <a href="https://wa.me/94703282247" target="_blank" class="btn-hero"
@@ -1071,7 +1167,7 @@
       </div>
     </div>
 
-    <!-- ── CONTACT ─────────────────────────────────────────── -->
+    <!-- ── CONTACT ── -->
     <section id="contact">
       <div class="container">
         <div class="text-center mb-5 reveal">
@@ -1079,7 +1175,8 @@
           <h2 class="section-title">Find Us &amp; Contact</h2>
           <div class="divider centered"></div>
         </div>
-        <div class="row g-4">
+        <div class="row g-4 align-items-stretch">
+          <!-- Contact details + socials -->
           <div class="col-lg-5 reveal">
             <div class="contact-card h-100">
               <div class="contact-item">
@@ -1109,7 +1206,9 @@
                 </div>
                 <div class="contact-info">
                   <h6>Email</h6>
-                  <a href="mailto:littleheavennidangoda@gmail.com"
+                  <a
+                    href="mailto:littleheavennidangoda@gmail.com"
+                    style="word-break: break-all"
                     >littleheavennidangoda@gmail.com</a
                   >
                 </div>
@@ -1125,7 +1224,8 @@
                   >
                 </div>
               </div>
-
+              <hr style="border-color: var(--mist); margin: 0.4rem 0 1.4rem" />
+              <p class="section-label mb-2">Follow &amp; Book</p>
               <div class="social-strip">
                 <a href="#" class="soc-btn airbnb" target="_blank"
                   ><i class="fa-brands fa-airbnb"></i> Airbnb</a
@@ -1145,99 +1245,37 @@
               </div>
             </div>
           </div>
+
+          <!-- Map -->
           <div class="col-lg-7 reveal">
-            <!-- Replace the div below with a real Google Maps embed iframe -->
             <div class="map-embed">
-              <p>
-                <i
-                  class="fa-solid fa-map-pin fa-2x mb-3 d-block text-center"
-                  style="color: var(--gold)"
-                ></i>
-                <strong>Replace this block with a Google Maps embed</strong
-                ><br />
-                Go to Google Maps → Search "Nidangoda, Kalupahana" → Share →
-                Embed a map → Copy &lt;iframe&gt; code here
-              </p>
-            </div>
-            <!-- Enquiry Form -->
-            <div class="contact-card mt-4">
-              <h5
-                class="mb-3"
-                style="
-                  font-family: &quot;Cormorant Garamond&quot;, serif;
-                  color: var(--forest);
-                  font-size: 1.4rem;
-                  font-weight: 400;
-                "
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5444.6493916157715!2d80.84902064709247!3d6.77027987973581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae4778c9458cbb3%3A0xc411f43cfcfafe94!2sNidangoda%20Bo%20maluwa!5e0!3m2!1sen!2slk!4v1774760909251!5m2!1sen!2slk"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Little Heaven HomeStay location map"
               >
-                Send an Enquiry
-              </h5>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Your Name"
-                    style="border-color: var(--mist); font-size: 0.88rem"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Your Email"
-                    style="border-color: var(--mist); font-size: 0.88rem"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="date"
-                    class="form-control"
-                    style="border-color: var(--mist); font-size: 0.88rem"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="date"
-                    class="form-control"
-                    style="border-color: var(--mist); font-size: 0.88rem"
-                  />
-                </div>
-                <div class="col-12">
-                  <textarea
-                    class="form-control"
-                    rows="3"
-                    placeholder="Any special requests?"
-                    style="border-color: var(--mist); font-size: 0.88rem"
-                  ></textarea>
-                </div>
-                <div class="col-12">
-                  <button
-                    class="btn-gold w-100"
-                    onclick="alert('Thank you! We will get back to you soon.')"
-                  >
-                    Send Enquiry
-                  </button>
-                </div>
-              </div>
+              </iframe>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── FOOTER ──────────────────────────────────────────── -->
+    <!-- ── FOOTER ── -->
     <footer>
       <div class="container">
         <div class="row g-4">
-          <div class="col-lg-4">
-            <div class="brand-name mb-2">Little Heaven</div>
+          <div class="col-lg-4 col-md-6">
+            <div class="brand-name mb-1">Little Heaven</div>
             <p
               style="
-                font-size: 0.8rem;
-                color: rgba(255, 255, 255, 0.45);
-                letter-spacing: 0.1em;
+                font-size: 0.78rem;
+                color: rgba(255, 255, 255, 0.4);
+                letter-spacing: 0.12em;
                 margin-bottom: 1rem;
+                text-transform: uppercase;
               "
             >
               HomeStay &amp; Villa · Nidangoda
@@ -1264,19 +1302,8 @@
               ></a>
             </div>
           </div>
-          <div class="col-6 col-lg-2 offset-lg-1">
-            <h6
-              style="
-                color: var(--gold);
-                font-family: &quot;Jost&quot;, sans-serif;
-                font-size: 0.72rem;
-                letter-spacing: 0.2em;
-                text-transform: uppercase;
-                margin-bottom: 1rem;
-              "
-            >
-              Quick Links
-            </h6>
+          <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
+            <p class="footer-heading">Quick Links</p>
             <ul class="list-unstyled footer-links">
               <li><a href="#about">About Us</a></li>
               <li><a href="#gallery">Gallery</a></li>
@@ -1285,44 +1312,24 @@
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
-          <div class="col-6 col-lg-2">
-            <h6
-              style="
-                color: var(--gold);
-                font-family: &quot;Jost&quot;, sans-serif;
-                font-size: 0.72rem;
-                letter-spacing: 0.2em;
-                text-transform: uppercase;
-                margin-bottom: 1rem;
-              "
-            >
-              Book With Us
-            </h6>
+          <div class="col-6 col-md-3 col-lg-2">
+            <p class="footer-heading">Book With Us</p>
             <ul class="list-unstyled footer-links">
-              <li><a href="#">Airbnb</a></li>
-              <li><a href="https://wa.me/94703282247">WhatsApp</a></li>
+              <li><a href="#" target="_blank">Airbnb</a></li>
               <li>
-                <a href="mailto:littleheavennidangoda@gmail.com">Email</a>
+                <a href="https://wa.me/94703282247" target="_blank">WhatsApp</a>
+              </li>
+              <li>
+                <a href="mailto:littleheavennidangoda@gmail.com">Email Us</a>
               </li>
               <li><a href="tel:+94703282247">Call Us</a></li>
             </ul>
           </div>
-          <div class="col-lg-3">
-            <h6
-              style="
-                color: var(--gold);
-                font-family: &quot;Jost&quot;, sans-serif;
-                font-size: 0.72rem;
-                letter-spacing: 0.2em;
-                text-transform: uppercase;
-                margin-bottom: 1rem;
-              "
-            >
-              Contact
-            </h6>
+          <div class="col-md-6 col-lg-3">
+            <p class="footer-heading">Contact</p>
             <p>Nidangoda, Kalupahana<br />Sri Lanka</p>
-            <p><a href="tel:+94703282247">+94 070 328 2247</a></p>
-            <p>
+            <p class="mt-2"><a href="tel:+94703282247">+94 070 328 2247</a></p>
+            <p class="mt-1">
               <a
                 href="mailto:littleheavennidangoda@gmail.com"
                 style="word-break: break-all"
@@ -1333,48 +1340,55 @@
         </div>
         <div class="footer-bottom">
           <p>
-            &copy; 2025 Little Heaven HomeStay &amp; Villa. All rights reserved.
-            · Nidangoda, Kalupahana, Sri Lanka
+            &copy; <span id="yr"></span> Little Heaven HomeStay &amp; Villa. All
+            rights reserved. &nbsp;·&nbsp; Nidangoda, Kalupahana, Sri Lanka
           </p>
         </div>
       </div>
     </footer>
 
-    <!-- ── SCRIPTS ─────────────────────────────────────────── -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Navbar scroll
+      /* Navbar scroll */
       const nav = document.getElementById("mainNav");
-      window.addEventListener("scroll", () => {
-        nav.classList.toggle("scrolled", window.scrollY > 60);
-      });
+      window.addEventListener(
+        "scroll",
+        () => nav.classList.toggle("scrolled", window.scrollY > 60),
+        { passive: true },
+      );
 
-      // Hero loaded animation
+      /* Hero pan animation */
       document.getElementById("hero").classList.add("loaded");
 
-      // Scroll reveal
-      const reveals = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver(
+      /* Year */
+      document.getElementById("yr").textContent = new Date().getFullYear();
+
+      /* Scroll reveal */
+      const revealObs = new IntersectionObserver(
         (entries) => {
-          entries.forEach((e, i) => {
-            if (e.isIntersecting) {
-              setTimeout(() => e.target.classList.add("visible"), i * 80);
-              observer.unobserve(e.target);
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => entry.target.classList.add("visible"), i * 90);
+              revealObs.unobserve(entry.target);
             }
           });
         },
-        { threshold: 0.12 },
+        { threshold: 0.1 },
       );
-      reveals.forEach((el) => observer.observe(el));
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => revealObs.observe(el));
 
-      // Lightbox
+      /* Lightbox */
       function openLightbox(el) {
-        const src = el.querySelector("img").src;
-        document.getElementById("lightbox-img").src = src;
+        document.getElementById("lightbox-img").src =
+          el.querySelector("img").src;
         document.getElementById("lightbox").classList.add("active");
+        document.body.style.overflow = "hidden";
       }
       function closeLightbox() {
         document.getElementById("lightbox").classList.remove("active");
+        document.body.style.overflow = "";
       }
       document
         .getElementById("lightbox")
@@ -1384,6 +1398,31 @@
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeLightbox();
       });
+
+      /* Enquiry form */
+      function handleEnquiry(e) {
+        e.preventDefault();
+        const btn = document.getElementById("enq-btn");
+        btn.innerHTML = '<i class="fa-solid fa-check me-2"></i>Message Sent!';
+        btn.style.background = "var(--sage)";
+        setTimeout(() => {
+          btn.innerHTML =
+            '<i class="fa-regular fa-paper-plane me-2"></i>Send Enquiry';
+          btn.style.background = "";
+        }, 3200);
+      }
+
+      /* Auto-close mobile nav on link click */
+      document
+        .querySelectorAll("#navMenu .nav-link, #navMenu .nav-book-btn")
+        .forEach((link) => {
+          link.addEventListener("click", () => {
+            const bsCollapse = bootstrap.Collapse.getInstance(
+              document.getElementById("navMenu"),
+            );
+            if (bsCollapse) bsCollapse.hide();
+          });
+        });
     </script>
   </body>
 </html>
