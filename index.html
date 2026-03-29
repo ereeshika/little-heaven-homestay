@@ -800,6 +800,27 @@
         text-align: center;
       }
 
+      .cream {
+        color: var(--cream);
+      }
+
+      .break-all {
+        word-break: break-all;
+      }
+
+      .horizontal {
+        border-color: var(--mist);
+        margin: 0.4rem 0 1.4rem;
+      }
+
+      .paragraph {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.4);
+        letter-spacing: 0.12em;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
       /* ── ANIMATIONS ── */
       @keyframes fadeUp {
         from {
@@ -904,7 +925,7 @@
               <div class="about-accent"></div>
             </div>
           </div>
-          <div class="col-lg-7 about-text reveal" style="margin-top: 1rem">
+          <div class="col-lg-7 about-text reveal mt-1">
             <p class="section-label">Our Story</p>
             <h2 class="section-title">
               A Peaceful Retreat<br />in the Heart of Nature
@@ -999,9 +1020,7 @@
       <div class="container">
         <div class="text-center mb-5 reveal">
           <p class="section-label">What We Offer</p>
-          <h2 class="section-title" style="color: var(--cream)">
-            Amenities &amp; Comforts
-          </h2>
+          <h2 class="section-title cream">Amenities &amp; Comforts</h2>
           <div class="divider centered"></div>
         </div>
         <div class="row g-4 justify-content-center">
@@ -1160,7 +1179,11 @@
           <a href="#" class="btn-gold" target="_blank"
             ><i class="fa-brands fa-airbnb me-2"></i>Book on Airbnb</a
           >
-          <a href="https://wa.me/94703282247" target="_blank" class="btn-hero"
+          <a
+            href="https://wa.me/94703282247"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-hero"
             ><i class="fa-brands fa-whatsapp me-2"></i>WhatsApp Us</a
           >
         </div>
@@ -1207,8 +1230,8 @@
                 <div class="contact-info">
                   <h6>Email</h6>
                   <a
+                    class="break-all"
                     href="mailto:littleheavennidangoda@gmail.com"
-                    style="word-break: break-all"
                     >littleheavennidangoda@gmail.com</a
                   >
                 </div>
@@ -1219,12 +1242,15 @@
                 </div>
                 <div class="contact-info">
                   <h6>WhatsApp</h6>
-                  <a href="https://wa.me/94703282247" target="_blank"
+                  <a
+                    href="https://wa.me/94703282247"
+                    rel="noopener noreferrer"
+                    target="_blank"
                     >+94 070 328 2247</a
                   >
                 </div>
               </div>
-              <hr style="border-color: var(--mist); margin: 0.4rem 0 1.4rem" />
+              <hr class="horizontal" />
               <p class="section-label mb-2">Follow &amp; Book</p>
               <div class="social-strip">
                 <a href="#" class="soc-btn airbnb" target="_blank"
@@ -1239,6 +1265,7 @@
                 <a
                   href="https://wa.me/94703282247"
                   class="soc-btn wa"
+                  rel="noopener noreferrer"
                   target="_blank"
                   ><i class="fa-brands fa-whatsapp"></i> WhatsApp</a
                 >
@@ -1253,7 +1280,6 @@
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5444.6493916157715!2d80.84902064709247!3d6.77027987973581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae4778c9458cbb3%3A0xc411f43cfcfafe94!2sNidangoda%20Bo%20maluwa!5e0!3m2!1sen!2slk!4v1774760909251!5m2!1sen!2slk"
                 allowfullscreen=""
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
                 title="Little Heaven HomeStay location map"
               >
               </iframe>
@@ -1269,17 +1295,7 @@
         <div class="row g-4">
           <div class="col-lg-4 col-md-6">
             <div class="brand-name mb-1">Little Heaven</div>
-            <p
-              style="
-                font-size: 0.78rem;
-                color: rgba(255, 255, 255, 0.4);
-                letter-spacing: 0.12em;
-                margin-bottom: 1rem;
-                text-transform: uppercase;
-              "
-            >
-              HomeStay &amp; Villa · Nidangoda
-            </p>
+            <p class="paragraph">HomeStay &amp; Villa · Nidangoda</p>
             <p>
               A peaceful nature retreat in the highlands of Kalupahana, Sri
               Lanka. Your home away from home.
@@ -1297,6 +1313,7 @@
               <a
                 href="https://wa.me/94703282247"
                 target="_blank"
+                rel="noopener noreferrer"
                 title="WhatsApp"
                 ><i class="fa-brands fa-whatsapp"></i
               ></a>
@@ -1317,7 +1334,12 @@
             <ul class="list-unstyled footer-links">
               <li><a href="#" target="_blank">Airbnb</a></li>
               <li>
-                <a href="https://wa.me/94703282247" target="_blank">WhatsApp</a>
+                <a
+                  href="https://wa.me/94703282247"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >WhatsApp</a
+                >
               </li>
               <li>
                 <a href="mailto:littleheavennidangoda@gmail.com">Email Us</a>
@@ -1330,9 +1352,7 @@
             <p>Nidangoda, Kalupahana<br />Sri Lanka</p>
             <p class="mt-2"><a href="tel:+94703282247">+94 070 328 2247</a></p>
             <p class="mt-1">
-              <a
-                href="mailto:littleheavennidangoda@gmail.com"
-                style="word-break: break-all"
+              <a class="break-all" href="mailto:littleheavennidangoda@gmail.com"
                 >littleheavennidangoda@gmail.com</a
               >
             </p>
