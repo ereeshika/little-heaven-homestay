@@ -1,0 +1,1389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Little Heaven HomeStay & Villa | Nidangoda, Kalupahana</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --forest: #2c4a3e;
+        --sage: #5a7f6e;
+        --mist: #b8cfc0;
+        --cream: #f5f0e8;
+        --gold: #c8a96e;
+        --charcoal: #1e2d27;
+        --white: #ffffff;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Jost", sans-serif;
+        background: var(--cream);
+        color: var(--charcoal);
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      /* ── NAVBAR ─────────────────────────────────────── */
+      .navbar {
+        background: transparent;
+        transition:
+          background 0.4s,
+          box-shadow 0.4s;
+        padding: 1.2rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+      .navbar.scrolled {
+        background: rgba(28, 45, 39, 0.96);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        padding: 0.7rem 0;
+      }
+      .navbar-brand {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--white) !important;
+        letter-spacing: 0.03em;
+        line-height: 1.15;
+      }
+      .navbar-brand span {
+        display: block;
+        font-size: 0.7rem;
+        font-family: "Jost", sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.25em;
+        color: var(--gold);
+        text-transform: uppercase;
+      }
+      .navbar-nav .nav-link {
+        color: rgba(255, 255, 255, 0.85) !important;
+        font-size: 0.8rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 400;
+        padding: 0.4rem 1rem !important;
+        transition: color 0.25s;
+      }
+      .navbar-nav .nav-link:hover {
+        color: var(--gold) !important;
+      }
+      .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+      .navbar-toggler-icon {
+        filter: invert(1);
+      }
+
+      /* ── HERO ────────────────────────────────────────── */
+      #hero {
+        position: relative;
+        height: 100vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      #hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(28, 45, 39, 0.45) 0%,
+            rgba(28, 45, 39, 0.65) 100%
+          ),
+          url("https://placehold.co/1600x900/2c4a3e/5a7f6e?text=Hero+Image+–+Replace+Me")
+            center/cover no-repeat;
+        transform: scale(1.04);
+        transition: transform 8s ease-out;
+      }
+      #hero.loaded #hero-bg {
+        transform: scale(1);
+      }
+
+      .hero-content {
+        position: relative;
+        text-align: center;
+        color: var(--white);
+        padding: 2rem;
+        animation: fadeUp 1.1s ease both;
+      }
+      .hero-eyebrow {
+        font-size: 0.72rem;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-family: "Jost", sans-serif;
+        font-weight: 400;
+        margin-bottom: 1rem;
+      }
+      .hero-title {
+        font-size: clamp(2.8rem, 7vw, 5.5rem);
+        font-weight: 300;
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.4rem;
+      }
+      .hero-title em {
+        font-style: italic;
+        color: var(--mist);
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+        font-family: "Jost", sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 2.2rem;
+      }
+      .btn-hero {
+        display: inline-block;
+        padding: 0.85rem 2.6rem;
+        border: 1.5px solid var(--gold);
+        color: var(--white);
+        font-family: "Jost", sans-serif;
+        font-size: 0.78rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition:
+          background 0.3s,
+          color 0.3s;
+        border-radius: 2px;
+      }
+      .btn-hero:hover {
+        background: var(--gold);
+        color: var(--charcoal);
+      }
+      .scroll-hint {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2.2s infinite;
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 1.3rem;
+      }
+
+      /* ── SECTION SHARED ──────────────────────────────── */
+      section {
+        padding: 90px 0;
+      }
+      .section-label {
+        font-family: "Jost", sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.6rem;
+      }
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 300;
+        line-height: 1.1;
+        color: var(--forest);
+      }
+      .divider {
+        width: 48px;
+        height: 2px;
+        background: var(--gold);
+        margin: 1.2rem 0 1.6rem;
+      }
+      .divider.centered {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* ── ABOUT ───────────────────────────────────────── */
+      #about {
+        background: var(--white);
+      }
+      .about-img-wrap {
+        position: relative;
+        overflow: hidden;
+        border-radius: 2px;
+      }
+      .about-img-wrap img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+      .about-img-wrap:hover img {
+        transform: scale(1.04);
+      }
+      .about-accent {
+        position: absolute;
+        bottom: -18px;
+        right: -18px;
+        width: 140px;
+        height: 140px;
+        border: 2px solid var(--gold);
+        border-radius: 2px;
+        z-index: 0;
+      }
+      .about-text p {
+        font-size: 1rem;
+        line-height: 1.85;
+        color: #4a5a52;
+        margin-bottom: 1rem;
+      }
+      .feature-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: var(--cream);
+        border: 1px solid var(--mist);
+        border-radius: 50px;
+        padding: 0.35rem 0.9rem;
+        font-size: 0.8rem;
+        color: var(--forest);
+        margin: 0.25rem 0.15rem;
+      }
+      .feature-chip i {
+        color: var(--gold);
+        font-size: 0.75rem;
+      }
+
+      /* ── GALLERY ─────────────────────────────────────── */
+      #gallery {
+        background: var(--cream);
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 240px 240px;
+        gap: 10px;
+      }
+      .gallery-grid .g-item {
+        overflow: hidden;
+        border-radius: 2px;
+        cursor: pointer;
+        position: relative;
+      }
+      .gallery-grid .g-item.tall {
+        grid-row: span 2;
+      }
+      .gallery-grid .g-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        display: block;
+      }
+      .gallery-grid .g-item:hover img {
+        transform: scale(1.06);
+      }
+      .g-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(28, 45, 39, 0);
+        transition: background 0.35s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .g-overlay i {
+        color: white;
+        font-size: 1.5rem;
+        opacity: 0;
+        transition: opacity 0.35s;
+      }
+      .g-item:hover .g-overlay {
+        background: rgba(28, 45, 39, 0.35);
+      }
+      .g-item:hover .g-overlay i {
+        opacity: 1;
+      }
+
+      /* Lightbox */
+      #lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+      }
+      #lightbox.active {
+        display: flex;
+      }
+      #lightbox img {
+        max-width: 90vw;
+        max-height: 85vh;
+        border-radius: 2px;
+        object-fit: contain;
+      }
+      #lightbox-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        color: white;
+        font-size: 1.8rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        line-height: 1;
+      }
+
+      /* ── AMENITIES ───────────────────────────────────── */
+      #amenities {
+        background: var(--forest);
+      }
+      #amenities .section-title {
+        color: var(--cream);
+      }
+      #amenities .section-label {
+        color: var(--gold);
+      }
+      .amenity-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        transition:
+          background 0.3s,
+          transform 0.3s;
+        height: 100%;
+      }
+      .amenity-card:hover {
+        background: rgba(200, 169, 110, 0.12);
+        transform: translateY(-4px);
+      }
+      .amenity-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: rgba(200, 169, 110, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 1.3rem;
+        color: var(--gold);
+      }
+      .amenity-card h5 {
+        color: var(--cream);
+        font-size: 1rem;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+      }
+      .amenity-card p {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.82rem;
+        margin: 0.4rem 0 0;
+      }
+
+      /* ── ROOMS ───────────────────────────────────────── */
+      #rooms {
+        background: var(--white);
+      }
+      .room-card {
+        border: none;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+        transition:
+          box-shadow 0.3s,
+          transform 0.3s;
+        height: 100%;
+      }
+      .room-card:hover {
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.13);
+        transform: translateY(-5px);
+      }
+      .room-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+      .room-card .card-body {
+        padding: 1.6rem;
+      }
+      .room-card .card-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: var(--forest);
+      }
+      .room-card .card-text {
+        font-size: 0.88rem;
+        color: #6a7a72;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+      .room-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.75rem;
+        color: var(--sage);
+        margin: 0.1rem 0.2rem;
+      }
+      .room-badge i {
+        color: var(--gold);
+      }
+
+      /* ── CONTACT ─────────────────────────────────────── */
+      #contact {
+        background: var(--cream);
+      }
+      .contact-card {
+        background: var(--white);
+        border-radius: 4px;
+        padding: 2.5rem;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.07);
+      }
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.1rem;
+        margin-bottom: 1.5rem;
+      }
+      .contact-icon {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        border-radius: 50%;
+        background: var(--cream);
+        border: 1.5px solid var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        font-size: 0.9rem;
+      }
+      .contact-info h6 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--forest);
+        margin-bottom: 0.1rem;
+      }
+      .contact-info p,
+      .contact-info a {
+        font-size: 0.88rem;
+        color: #6a7a72;
+        text-decoration: none;
+      }
+      .contact-info a:hover {
+        color: var(--gold);
+      }
+      .map-embed {
+        border-radius: 4px;
+        overflow: hidden;
+        height: 280px;
+        background: var(--mist);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .map-embed p {
+        color: var(--forest);
+        font-size: 0.85rem;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      /* Social buttons */
+      .social-strip {
+        display: flex;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+      }
+      .soc-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.55rem 1.2rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-family: "Jost", sans-serif;
+        text-decoration: none;
+        transition:
+          opacity 0.25s,
+          transform 0.25s;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+      }
+      .soc-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-2px);
+      }
+      .soc-btn.airbnb {
+        background: #ff5a5f;
+        color: white;
+      }
+      .soc-btn.fb {
+        background: #1877f2;
+        color: white;
+      }
+      .soc-btn.ig {
+        background: linear-gradient(
+          135deg,
+          #f09433,
+          #e6683c,
+          #dc2743,
+          #cc2366,
+          #bc1888
+        );
+        color: white;
+      }
+      .soc-btn.wa {
+        background: #25d366;
+        color: white;
+      }
+
+      /* ── BOOK BANNER ─────────────────────────────────── */
+      #book-banner {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(28, 45, 39, 0.9) 0%,
+            rgba(90, 127, 110, 0.85) 100%
+          ),
+          url("https://placehold.co/1400x500/2c4a3e/5a7f6e?text=Banner+Background")
+            center/cover;
+        padding: 80px 0;
+        text-align: center;
+        color: var(--white);
+      }
+      #book-banner h2 {
+        font-size: clamp(2rem, 5vw, 3.4rem);
+        font-weight: 300;
+        margin-bottom: 0.6rem;
+      }
+      #book-banner p {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.72);
+        margin-bottom: 2rem;
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: var(--charcoal);
+        padding: 0.85rem 2.5rem;
+        font-family: "Jost", sans-serif;
+        font-size: 0.82rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 2px;
+        display: inline-block;
+        transition:
+          background 0.25s,
+          transform 0.25s;
+        border: none;
+      }
+      .btn-gold:hover {
+        background: #d4b882;
+        transform: translateY(-2px);
+      }
+
+      /* ── FOOTER ──────────────────────────────────────── */
+      footer {
+        background: var(--charcoal);
+        color: rgba(255, 255, 255, 0.55);
+        padding: 50px 0 28px;
+      }
+      footer .brand-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.6rem;
+        color: var(--white);
+        font-weight: 400;
+      }
+      footer p {
+        font-size: 0.83rem;
+        line-height: 1.7;
+      }
+      footer a {
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+        font-size: 0.83rem;
+      }
+      footer a:hover {
+        color: var(--gold);
+      }
+      footer .footer-links li {
+        margin-bottom: 0.4rem;
+      }
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        margin-right: 0.4rem;
+        color: rgba(255, 255, 255, 0.6) !important;
+        font-size: 0.9rem;
+        transition:
+          border-color 0.25s,
+          color 0.25s;
+      }
+      .footer-social a:hover {
+        border-color: var(--gold);
+        color: var(--gold) !important;
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        margin-top: 2rem;
+        padding-top: 1.2rem;
+        font-size: 0.76rem;
+        text-align: center;
+      }
+
+      /* ── ANIMATIONS ──────────────────────────────────── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(8px);
+        }
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── RESPONSIVE ──────────────────────────────────── */
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: auto;
+        }
+        .gallery-grid .g-item.tall {
+          grid-row: span 1;
+        }
+        section {
+          padding: 64px 0;
+        }
+      }
+      @media (max-width: 576px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-accent {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── NAVBAR ─────────────────────────────────────────── -->
+    <nav class="navbar navbar-expand-lg" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          Little Heaven
+          <span>HomeStay &amp; Villa · Nidangoda</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+          <ul class="navbar-nav gap-1">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#amenities">Amenities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#rooms">Rooms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item ms-2">
+              <a
+                class="btn-hero nav-link"
+                href="#contact"
+                style="padding: 0.45rem 1.3rem !important; font-size: 0.72rem"
+                >Book Now</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ── HERO ───────────────────────────────────────────── -->
+    <section id="hero">
+      <div id="hero-bg"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Welcome to</p>
+        <h1 class="hero-title">
+          Little <em>Heaven</em><br />HomeStay &amp; Villa
+        </h1>
+        <p class="hero-subtitle">Nidangoda · Kalupahana · Sri Lanka</p>
+        <a href="#about" class="btn-hero">Discover More</a>
+      </div>
+      <div class="scroll-hint"><i class="fa-solid fa-chevron-down"></i></div>
+    </section>
+
+    <!-- ── ABOUT ──────────────────────────────────────────── -->
+    <section id="about">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5 reveal">
+            <div class="about-img-wrap" style="position: relative">
+              <img
+                src="https://placehold.co/640x480/5a7f6e/f5f0e8?text=About+Image+–+Replace+Me"
+                alt="Little Heaven HomeStay"
+              />
+              <div class="about-accent"></div>
+            </div>
+          </div>
+          <div class="col-lg-7 about-text reveal">
+            <p class="section-label">Our Story</p>
+            <h2 class="section-title">
+              A Peaceful Retreat<br />in the Heart of Nature
+            </h2>
+            <div class="divider"></div>
+            <p>
+              Nestled in the lush, misty hills of Kalupahana,
+              <strong>Little Heaven HomeStay &amp; Villa</strong> is your serene
+              getaway from the bustle of everyday life. Surrounded by verdant
+              greenery and the gentle sounds of nature, our property offers a
+              truly authentic Sri Lankan highland experience.
+            </p>
+            <p>
+              Whether you're a solo traveller seeking solitude, a couple looking
+              for a romantic escape, or a family on a nature adventure — we
+              promise warm hospitality, comfort, and memories that last a
+              lifetime.
+            </p>
+            <div class="mt-3">
+              <span class="feature-chip"
+                ><i class="fa-solid fa-leaf"></i> Lush Nature</span
+              >
+              <span class="feature-chip"
+                ><i class="fa-solid fa-star"></i> Warm Hospitality</span
+              >
+              <span class="feature-chip"
+                ><i class="fa-solid fa-mountain"></i> Scenic Views</span
+              >
+              <span class="feature-chip"
+                ><i class="fa-solid fa-wifi"></i> Free Wi-Fi</span
+              >
+              <span class="feature-chip"
+                ><i class="fa-solid fa-utensils"></i> Home-cooked Meals</span
+              >
+              <span class="feature-chip"
+                ><i class="fa-solid fa-car"></i> Free Parking</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GALLERY ─────────────────────────────────────────── -->
+    <section id="gallery">
+      <div class="container">
+        <div class="text-center mb-5 reveal">
+          <p class="section-label">Photo Gallery</p>
+          <h2 class="section-title">Glimpses of Little Heaven</h2>
+          <div class="divider centered"></div>
+        </div>
+        <div class="gallery-grid reveal">
+          <div class="g-item tall" onclick="openLightbox(this)">
+            <img
+              src="https://placehold.co/600x900/2c4a3e/b8cfc0?text=Gallery+1"
+              alt="Gallery 1"
+            />
+            <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
+          </div>
+          <div class="g-item" onclick="openLightbox(this)">
+            <img
+              src="https://placehold.co/600x400/5a7f6e/f5f0e8?text=Gallery+2"
+              alt="Gallery 2"
+            />
+            <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
+          </div>
+          <div class="g-item" onclick="openLightbox(this)">
+            <img
+              src="https://placehold.co/600x400/b8cfc0/2c4a3e?text=Gallery+3"
+              alt="Gallery 3"
+            />
+            <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
+          </div>
+          <div class="g-item" onclick="openLightbox(this)">
+            <img
+              src="https://placehold.co/600x400/c8a96e/ffffff?text=Gallery+4"
+              alt="Gallery 4"
+            />
+            <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
+          </div>
+          <div class="g-item" onclick="openLightbox(this)">
+            <img
+              src="https://placehold.co/600x400/1e2d27/b8cfc0?text=Gallery+5"
+              alt="Gallery 5"
+            />
+            <div class="g-overlay"><i class="fa-solid fa-expand"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+      <button id="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightbox-img" src="" alt="Lightbox" />
+    </div>
+
+    <!-- ── AMENITIES ───────────────────────────────────────── -->
+    <section id="amenities">
+      <div class="container">
+        <div class="text-center mb-5 reveal">
+          <p class="section-label">What We Offer</p>
+          <h2 class="section-title" style="color: var(--cream)">
+            Amenities &amp; Comforts
+          </h2>
+          <div class="divider centered"></div>
+        </div>
+        <div class="row g-4">
+          <div class="col-6 col-md-4 col-lg-2 reveal">
+            <div class="amenity-card">
+              <div class="amenity-icon"><i class="fa-solid fa-wifi"></i></div>
+              <h5>Free Wi-Fi</h5>
+              <p>Stay connected throughout</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2 reveal">
+            <div class="amenity-card">
+              <div class="amenity-icon">
+                <i class="fa-solid fa-utensils"></i>
+              </div>
+              <h5>Meals</h5>
+              <p>Authentic home-cooked food</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2 reveal">
+            <div class="amenity-card">
+              <div class="amenity-icon"><i class="fa-solid fa-car"></i></div>
+              <h5>Parking</h5>
+              <p>Free on-site parking</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2 reveal">
+            <div class="amenity-card">
+              <div class="amenity-icon">
+                <i class="fa-solid fa-mountain-sun"></i>
+              </div>
+              <h5>Scenic Views</h5>
+              <p>Breathtaking hill vistas</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2 reveal">
+            <div class="amenity-card">
+              <div class="amenity-icon">
+                <i class="fa-solid fa-person-hiking"></i>
+              </div>
+              <h5>Trekking</h5>
+              <p>Guided nature trails nearby</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2 reveal">
+            <div class="amenity-card">
+              <div class="amenity-icon">
+                <i class="fa-solid fa-droplet"></i>
+              </div>
+              <h5>Hot Water</h5>
+              <p>24-hour hot showers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ROOMS ───────────────────────────────────────────── -->
+    <section id="rooms">
+      <div class="container">
+        <div class="text-center mb-5 reveal">
+          <p class="section-label">Accommodation</p>
+          <h2 class="section-title">Rooms &amp; Spaces</h2>
+          <div class="divider centered"></div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4 reveal">
+            <div class="card room-card">
+              <img
+                src="https://placehold.co/600x360/5a7f6e/f5f0e8?text=Room+1+–+Replace+Me"
+                alt="Room 1"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Garden View Room</h5>
+                <p class="card-text">
+                  Wake up to the gentle rustle of leaves with a stunning view of
+                  our lush garden. Perfect for couples or solo travellers
+                  seeking tranquility.
+                </p>
+                <div>
+                  <span class="room-badge"
+                    ><i class="fa-solid fa-bed"></i> Double Bed</span
+                  >
+                  <span class="room-badge"
+                    ><i class="fa-solid fa-bath"></i> En Suite</span
+                  >
+                  <span class="room-badge"
+                    ><i class="fa-solid fa-wifi"></i> Wi-Fi</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="card room-card">
+              <img
+                src="https://placehold.co/600x360/2c4a3e/b8cfc0?text=Room+2+–+Replace+Me"
+                alt="Room 2"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Valley View Suite</h5>
+                <p class="card-text">
+                  Our most popular suite, offering panoramic views of the
+                  Kalupahana valley. Spacious, serene, and unforgettable.
+                </p>
+                <div>
+                  <span class="room-badge"
+                    ><i class="fa-solid fa-bed"></i> King Bed</span
+                  >
+                  <span class="room-badge"
+                    ><i class="fa-solid fa-bath"></i> Private Bath</span
+                  >
+                  <span class="room-badge"
+                    ><i class="fa-solid fa-mountain"></i> View</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="card room-card">
+              <img
+                src="https://placehold.co/600x360/b8cfc0/1e2d27?text=Room+3+–+Replace+Me"
+                alt="Room 3"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Family Villa</h5>
+                <p class="card-text">
+                  A spacious villa ideal for families and small groups. Multiple
+                  bedrooms, a living area, and direct access to the garden.
+                </p>
+                <div>
+                  <span class="room-badge"
+                    ><i class="fa-solid fa-bed"></i> Multiple Beds</span
+                  >
+                  <span class="room-badge"
+                    ><i class="fa-solid fa-users"></i> Up to 6 Guests</span
+                  >
+                  <span class="room-badge"
+                    ><i class="fa-solid fa-utensils"></i> Kitchenette</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── BOOK BANNER ─────────────────────────────────────── -->
+    <div id="book-banner">
+      <div class="container">
+        <h2>Ready to Experience Little Heaven?</h2>
+        <p>Book directly or find us on Airbnb. We'd love to host you.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="#" class="btn-gold"
+            ><i class="fa-brands fa-airbnb me-2"></i>Book on Airbnb</a
+          >
+          <a href="https://wa.me/94703282247" target="_blank" class="btn-hero"
+            ><i class="fa-brands fa-whatsapp me-2"></i>WhatsApp Us</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONTACT ─────────────────────────────────────────── -->
+    <section id="contact">
+      <div class="container">
+        <div class="text-center mb-5 reveal">
+          <p class="section-label">Get in Touch</p>
+          <h2 class="section-title">Find Us &amp; Contact</h2>
+          <div class="divider centered"></div>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-5 reveal">
+            <div class="contact-card h-100">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="contact-info">
+                  <h6>Address</h6>
+                  <p>
+                    Little Heaven HomeStay / Villa<br />Nidangoda, Kalupahana<br />Sri
+                    Lanka
+                  </p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="contact-info">
+                  <h6>Phone</h6>
+                  <a href="tel:+94703282247">+94 070 328 2247</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                  <h6>Email</h6>
+                  <a href="mailto:littleheavennidangoda@gmail.com"
+                    >littleheavennidangoda@gmail.com</a
+                  >
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div class="contact-info">
+                  <h6>WhatsApp</h6>
+                  <a href="https://wa.me/94703282247" target="_blank"
+                    >+94 070 328 2247</a
+                  >
+                </div>
+              </div>
+
+              <div class="social-strip">
+                <a href="#" class="soc-btn airbnb" target="_blank"
+                  ><i class="fa-brands fa-airbnb"></i> Airbnb</a
+                >
+                <a href="#" class="soc-btn fb" target="_blank"
+                  ><i class="fa-brands fa-facebook-f"></i> Facebook</a
+                >
+                <a href="#" class="soc-btn ig" target="_blank"
+                  ><i class="fa-brands fa-instagram"></i> Instagram</a
+                >
+                <a
+                  href="https://wa.me/94703282247"
+                  class="soc-btn wa"
+                  target="_blank"
+                  ><i class="fa-brands fa-whatsapp"></i> WhatsApp</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 reveal">
+            <!-- Replace the div below with a real Google Maps embed iframe -->
+            <div class="map-embed">
+              <p>
+                <i
+                  class="fa-solid fa-map-pin fa-2x mb-3 d-block text-center"
+                  style="color: var(--gold)"
+                ></i>
+                <strong>Replace this block with a Google Maps embed</strong
+                ><br />
+                Go to Google Maps → Search "Nidangoda, Kalupahana" → Share →
+                Embed a map → Copy &lt;iframe&gt; code here
+              </p>
+            </div>
+            <!-- Enquiry Form -->
+            <div class="contact-card mt-4">
+              <h5
+                class="mb-3"
+                style="
+                  font-family: &quot;Cormorant Garamond&quot;, serif;
+                  color: var(--forest);
+                  font-size: 1.4rem;
+                  font-weight: 400;
+                "
+              >
+                Send an Enquiry
+              </h5>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Your Name"
+                    style="border-color: var(--mist); font-size: 0.88rem"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your Email"
+                    style="border-color: var(--mist); font-size: 0.88rem"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="date"
+                    class="form-control"
+                    style="border-color: var(--mist); font-size: 0.88rem"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <input
+                    type="date"
+                    class="form-control"
+                    style="border-color: var(--mist); font-size: 0.88rem"
+                  />
+                </div>
+                <div class="col-12">
+                  <textarea
+                    class="form-control"
+                    rows="3"
+                    placeholder="Any special requests?"
+                    style="border-color: var(--mist); font-size: 0.88rem"
+                  ></textarea>
+                </div>
+                <div class="col-12">
+                  <button
+                    class="btn-gold w-100"
+                    onclick="alert('Thank you! We will get back to you soon.')"
+                  >
+                    Send Enquiry
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ──────────────────────────────────────────── -->
+    <footer>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="brand-name mb-2">Little Heaven</div>
+            <p
+              style="
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.45);
+                letter-spacing: 0.1em;
+                margin-bottom: 1rem;
+              "
+            >
+              HomeStay &amp; Villa · Nidangoda
+            </p>
+            <p>
+              A peaceful nature retreat in the highlands of Kalupahana, Sri
+              Lanka. Your home away from home.
+            </p>
+            <div class="footer-social mt-3">
+              <a href="#" target="_blank" title="Airbnb"
+                ><i class="fa-brands fa-airbnb"></i
+              ></a>
+              <a href="#" target="_blank" title="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" target="_blank" title="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://wa.me/94703282247"
+                target="_blank"
+                title="WhatsApp"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-6 col-lg-2 offset-lg-1">
+            <h6
+              style="
+                color: var(--gold);
+                font-family: &quot;Jost&quot;, sans-serif;
+                font-size: 0.72rem;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+              "
+            >
+              Quick Links
+            </h6>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#amenities">Amenities</a></li>
+              <li><a href="#rooms">Rooms</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h6
+              style="
+                color: var(--gold);
+                font-family: &quot;Jost&quot;, sans-serif;
+                font-size: 0.72rem;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+              "
+            >
+              Book With Us
+            </h6>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Airbnb</a></li>
+              <li><a href="https://wa.me/94703282247">WhatsApp</a></li>
+              <li>
+                <a href="mailto:littleheavennidangoda@gmail.com">Email</a>
+              </li>
+              <li><a href="tel:+94703282247">Call Us</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <h6
+              style="
+                color: var(--gold);
+                font-family: &quot;Jost&quot;, sans-serif;
+                font-size: 0.72rem;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+              "
+            >
+              Contact
+            </h6>
+            <p>Nidangoda, Kalupahana<br />Sri Lanka</p>
+            <p><a href="tel:+94703282247">+94 070 328 2247</a></p>
+            <p>
+              <a
+                href="mailto:littleheavennidangoda@gmail.com"
+                style="word-break: break-all"
+                >littleheavennidangoda@gmail.com</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Little Heaven HomeStay &amp; Villa. All rights reserved.
+            · Nidangoda, Kalupahana, Sri Lanka
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ── SCRIPTS ─────────────────────────────────────────── -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Navbar scroll
+      const nav = document.getElementById("mainNav");
+      window.addEventListener("scroll", () => {
+        nav.classList.toggle("scrolled", window.scrollY > 60);
+      });
+
+      // Hero loaded animation
+      document.getElementById("hero").classList.add("loaded");
+
+      // Scroll reveal
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+              setTimeout(() => e.target.classList.add("visible"), i * 80);
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      reveals.forEach((el) => observer.observe(el));
+
+      // Lightbox
+      function openLightbox(el) {
+        const src = el.querySelector("img").src;
+        document.getElementById("lightbox-img").src = src;
+        document.getElementById("lightbox").classList.add("active");
+      }
+      function closeLightbox() {
+        document.getElementById("lightbox").classList.remove("active");
+      }
+      document
+        .getElementById("lightbox")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeLightbox();
+        });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+      });
+    </script>
+  </body>
+</html>
